@@ -1,32 +1,32 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import TabPanel from './TabPanel';
-import AddIcon from '@material-ui/icons/Add';
-import TextField from '@material-ui/core/TextField';
-import Portal from '@material-ui/core/Portal';
-import FileUpload from './FileUpload';
+import React from "react"
+import clsx from "clsx"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
+import Drawer from "@material-ui/core/Drawer"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import AppBar from "@material-ui/core/AppBar"
+import Toolbar from "@material-ui/core/Toolbar"
+import List from "@material-ui/core/List"
+import Typography from "@material-ui/core/Typography"
+import Divider from "@material-ui/core/Divider"
+import IconButton from "@material-ui/core/IconButton"
+import MenuIcon from "@material-ui/icons/Menu"
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
+import ChevronRightIcon from "@material-ui/icons/ChevronRight"
+import TabPanel from "./TabPanel"
+import AddIcon from "@material-ui/icons/Add"
+import TextField from "@material-ui/core/TextField"
+import Portal from "@material-ui/core/Portal"
+import FileUpload from "./FileUpload"
 // import Modal from '@material-ui/core/Modal';
 
-const drawerWidth = 960;
+const drawerWidth = 960
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   hide: {
-    display: 'none',
+    display: "none",
   },
   drawer: {
     width: drawerWidth,
@@ -53,68 +53,69 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
   },
-}));
+}))
 
 export default function TopNav() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-  const [categories, updateCategories] = React.useState(['Taxes', 'Medical']);
-  const [show, setShow] = React.useState(false);
-  const container = React.useRef(null);
-  const [category, setCategory] = React.useState('');
+  const classes = useStyles()
+  const theme = useTheme()
+  const [open, setOpen] = React.useState(false)
+  const [categories, updateCategories] = React.useState(["Taxes", "Medical"])
+  const [show, setShow] = React.useState(false)
+  const container = React.useRef(null)
+  const [category, setCategory] = React.useState("")
 
   const updateCategory = (text) => {
-    setCategory(text);
+    setCategory(text)
   }
 
   const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleDrawerClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   const addCategory = (newCategory) => {
-    updateCategories([...categories, newCategory]);
+    updateCategories([...categories, newCategory])
   }
 
   const handleClick = () => {
-    setShow(!show);
-  };
+    setShow(!show)
+  }
 
   const handleFile = () => {
-    console.log('Open File Modal');
+    console.log("Open File Modal")
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <CssBaseline />
       <AppBar
+      style={{ background: 'transparent', boxShadow: 'none'}}
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -133,9 +134,7 @@ export default function TopNav() {
           <Typography variant="h6" noWrap>
             My Board
           </Typography>
-
         </Toolbar>
-
       </AppBar>
 
       <Drawer
@@ -148,37 +147,44 @@ export default function TopNav() {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleClick}><AddIcon /></IconButton>
+          <IconButton onClick={handleClick}>
+            <AddIcon />
+          </IconButton>
           <FileUpload categories={categories} />
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
           </IconButton>
-
         </div>
         <Divider />
         <List>
-        {show ? (
-          <Portal container={container.current}>
-            <form className={classes.drawer} noValidate autoComplete="off"
-              onSubmit={(e) => {
-                e.preventDefault();
-                addCategory(category);
-                updateCategory('');
-                handleClick();
-              }}>
-              <TextField
-                id="category-input"
-                label=""
-                value={category}
-                onChange={(e) => updateCategory(e.target.value)}
-              />
-            </form>
-          </Portal>
-        ) : null}
+          {show ? (
+            <Portal container={container.current}>
+              <form
+                className={classes.drawer}
+                noValidate
+                autoComplete="off"
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  addCategory(category)
+                  updateCategory("")
+                  handleClick()
+                }}
+              >
+                <TextField
+                  id="category-input"
+                  label=""
+                  value={category}
+                  onChange={(e) => updateCategory(e.target.value)}
+                />
+              </form>
+            </Portal>
+          ) : null}
           <TabPanel categories={categories} container={container} />
-
         </List>
-
       </Drawer>
 
       <main
@@ -189,5 +195,5 @@ export default function TopNav() {
         <div className={classes.drawerHeader} />
       </main>
     </div>
-  );
+  )
 }
