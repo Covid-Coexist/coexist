@@ -143,7 +143,7 @@ const Stickies = props => {
             size='small'
           />
           <CardContent ref={container}>
-            {stickyList}
+            {stickyList.length > 0 ? stickyList : null}
             {show ? (
               <Portal container={container.current}>
                 <form
@@ -160,13 +160,13 @@ const Stickies = props => {
                 >
                   <TextField
                     id='content-input'
-                    label=''
+                    label='Item text'
                     value={content}
                     onChange={e => updateContent(e.target.value)}
                   />
                   <TextField
                     id='additional-input'
-                    label=''
+                    label='Add details here'
                     value={additional}
                     onChange={e => updateAdditional(e.target.value)}
                   />

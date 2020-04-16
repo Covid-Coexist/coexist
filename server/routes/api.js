@@ -1,9 +1,10 @@
 const express = require('express');
 const apiRouter = express.Router();
 const BoardController = require('../controllers/BoardController');
+const sessionController = require('../controllers/sessionController');
 
 //get all stickies for a user board
-apiRouter.get('/stickies/:id', BoardController.getStickies, (req, res) => {
+apiRouter.get('/stickies/:id', sessionController.verify, BoardController.getStickies, (req, res) => {
   //get all stickies for current board
   res.status(200).json(res.locals.stickies);
 });

@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    width: '100%',
   },
   root: {
     '& > span': {
@@ -21,7 +22,6 @@ const useStyles = makeStyles(theme => ({
     '& > *': {
       margin: theme.spacing(2),
     },
-    width: '100%',
   },
 }));
 
@@ -78,7 +78,7 @@ const StickiesContainer = props => {
         setStickies(newStickies);
         console.log(stickies);
       });
-  }, []);
+  }, [currentBoard]);
 
   const updateContent = text => {
     setContent(text);
@@ -86,7 +86,11 @@ const StickiesContainer = props => {
   };
 
   const addSticky = () => {
-    // console.log('add!', content);
+
+    if (!content) {
+      return;
+    }
+
     const someData = {
       name: content,
       boardId: currentBoard,
@@ -119,9 +123,7 @@ const StickiesContainer = props => {
 
   const classes = useStyles();
   return (
-    <div>
-      <h1 className='container-header'>Board Name</h1>
-
+    <div className={classes.root}>
       <form
         style={{
           width: '400px',
@@ -144,7 +146,7 @@ const StickiesContainer = props => {
             type='text'
             onChange={e => updateContent(e.target.value)}
           />
-          <button
+          <Button
             style={{
               height: '27px',
               width: '80px',
@@ -152,7 +154,7 @@ const StickiesContainer = props => {
             onClick={addSticky}
           >
             Add a sticky!
-          </button>
+          </Button>
         </span>
       </form>
 
