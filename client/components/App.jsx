@@ -42,7 +42,6 @@ export default function App() {
     <MuiThemeProvider theme={theme}>
       <main>
         <Router>
-          <Link to='/dashboard'>Dashboard</Link>
           <Switch>
             <Route exact path='/'>
               <Welcome setCurrentBoard={setCurrentBoard} />

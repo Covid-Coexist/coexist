@@ -159,7 +159,7 @@ const StickiesContainer = props => {
       <Grid container spacing={3}>
         {stickies.map((sticky, idx) => {
           return (
-            <Grid key={`grid-${idx}`} item xs={12} sm={6} md={4}>
+            <Grid key={`grid-${idx}`} item md={6} sm={6} xs={12}>
               <Stickies key={`sticky-${idx}`} stickyData={sticky} />
             </Grid>
           );

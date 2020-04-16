@@ -47,7 +47,18 @@ const Welcome = props => {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(signUpInformation),
-    }).then(res => res.json());
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.boardId) {
+          setCurrentBoard(data.boardId);
+        }
+
+        if (data.authorized) {
+          setVerified(true);
+        }
+      });
+
     // TO DO: HOW ARE WE HANDLING RESPONSE BACK FROM SERVER
     // SERVER SHOULD BE RETURNING A USERID# THEN REROUTING
     // HOW ARE WE STORING THAT IN STATE?
