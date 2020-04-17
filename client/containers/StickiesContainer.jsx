@@ -86,7 +86,6 @@ const StickiesContainer = props => {
   };
 
   const addSticky = () => {
-
     if (!content) {
       return;
     }
@@ -158,10 +157,10 @@ const StickiesContainer = props => {
         </span>
       </form>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} style={{ margin: 'auto' }}>
         {stickies.map((sticky, idx) => {
           return (
-            <Grid key={`grid-${idx}`} item md={6} sm={6} xs={12}>
+            <Grid key={`grid-${idx}`} item lg={3} md={4} sm={6} xs={12}>
               <Stickies key={`sticky-${idx}`} stickyData={sticky} />
             </Grid>
           );

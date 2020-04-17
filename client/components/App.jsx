@@ -35,6 +35,8 @@ const theme = createMuiTheme({
       '@global': {
         body: {
           backgroundImage: 'url(https://i.picsum.photos/id/756/1920/1080.jpg)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
         },
       },
     },
