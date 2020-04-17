@@ -14,6 +14,8 @@ module.exports = {
       '/api': 'http://localhost:3000',
       '/auth': 'http://localhost:3000',
       '/build': 'http://localhost:3000',
+      '/dashboard': 'http://localhost:3000',
+      '/checkLogin': 'http://localhost:3000',
     },
     historyApiFallback: true,
   },

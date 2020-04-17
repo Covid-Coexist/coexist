@@ -17,7 +17,6 @@ import AddIcon from '@material-ui/icons/Add';
 import TextField from '@material-ui/core/TextField';
 import Portal from '@material-ui/core/Portal';
 import FileUpload from './FileUpload';
-// import Modal from '@material-ui/core/Modal';
 
 const drawerWidth = 960;
 
@@ -135,7 +134,11 @@ export default function TopNav() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' noWrap>
+          <Typography
+            style={{ textShadow: '1px 1px 1px rgba(0, 0, 0, 0.4)' }}
+            variant='h6'
+            noWrap
+          >
             My Board
           </Typography>
         </Toolbar>

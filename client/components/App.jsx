@@ -35,8 +35,9 @@ const theme = createMuiTheme({
     MuiCssBaseline: {
       '@global': {
         body: {
-          backgroundImage:
-            'url(https://i.picsum.photos/id/756/1920/1080.jpg)',
+          backgroundImage: 'url(https://i.picsum.photos/id/756/1920/1080.jpg)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
         },
       },
     },
@@ -50,7 +51,6 @@ export default function App() {
     <MuiThemeProvider theme={theme}>
       <main>
         <Router>
-          {/* <Link to='/dashboard'>Dashboard</Link> */}
           <Switch>
             <Route exact path='/'>
               <Welcome setCurrentBoard={setCurrentBoard} />

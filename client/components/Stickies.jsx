@@ -143,7 +143,7 @@ const Stickies = props => {
             size='small'
           />
           <CardContent ref={container}>
-            {stickyList.length > 0 ? stickyList : null}
+            {stickyList.length >= 0 ? stickyList : null}
             {show ? (
               <Portal container={container.current}>
                 <form
