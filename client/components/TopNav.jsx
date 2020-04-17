@@ -131,7 +131,11 @@ export default function TopNav() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' noWrap>
+          <Typography
+            style={{ textShadow: '1px 1px 1px rgba(0, 0, 0, 0.4)' }}
+            variant='h6'
+            noWrap
+          >
             My Board
           </Typography>
         </Toolbar>

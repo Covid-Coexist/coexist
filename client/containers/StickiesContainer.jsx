@@ -122,8 +122,46 @@ const StickiesContainer = props => {
 
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <>
       <form
+        style={{
+          width: '400px',
+          height: '100px',
+          justifyContent: 'center',
+          margin: '10px auto',
+          position: 'absolute',
+          left: '40%',
+          top: '10%',
+        }}
+        onSubmit={e => {
+          e.preventDefault();
+          updateContent('');
+        }}
+      >
+        <span>
+          <input
+            style={{
+              width: '200px',
+              height: '50px',
+              marginRight: '5px',
+            }}
+            type='text'
+            onChange={e => updateContent(e.target.value)}
+          />
+          <Button
+            style={{
+              height: '27px',
+              width: '80px',
+            }}
+            onClick={addSticky}
+          >
+            Add a sticky!
+          </Button>
+        </span>
+      </form>
+
+      <div className={classes.root}>
+        {/* <form
         style={{
           width: '400px',
           height: '100px',
@@ -155,18 +193,19 @@ const StickiesContainer = props => {
             Add a sticky!
           </Button>
         </span>
-      </form>
+      </form> */}
 
-      <Grid container spacing={3} style={{ margin: 'auto' }}>
-        {stickies.map((sticky, idx) => {
-          return (
-            <Grid key={`grid-${idx}`} item lg={3} md={4} sm={6} xs={12}>
-              <Stickies key={`sticky-${idx}`} stickyData={sticky} />
-            </Grid>
-          );
-        })}
-      </Grid>
-    </div>
+        <Grid container spacing={3} style={{ margin: 'auto' }}>
+          {stickies.map((sticky, idx) => {
+            return (
+              <Grid key={`grid-${idx}`} item lg={3} md={4} sm={6} xs={12}>
+                <Stickies key={`sticky-${idx}`} stickyData={sticky} />
+              </Grid>
+            );
+          })}
+        </Grid>
+      </div>
+    </>
   );
 };
 
