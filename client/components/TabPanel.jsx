@@ -59,12 +59,18 @@ export default function VerticalTabs(props) {
 
   const tabs = [];
   const tabPanels = [];
+  const urls = {
+    0: 'https://www.tctc.edu/media/5909/2018-1040.png',
+    1: 'https://amazinghealthcareconsultants.com/wp-content/uploads/phr_screenshot_dashboard.gif',
+    2: 'https://help.tallie.com/hc/article_attachments/360009901633/photo_4.jpg',
+  };
 
   for (let i = 0; i < categories.length; i++) {
     tabs.push(<Tab key={`tab-${i}`} label={categories[i]} {...a11yProps(i)} />);
+    console.log(props);
     tabPanels.push(
       <TabPanel key={`tab-panel-${i}`} value={value} index={i}>
-        Your Content Here
+        <img src={urls[i]} />
       </TabPanel>
     );
   }

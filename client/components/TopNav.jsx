@@ -17,7 +17,6 @@ import AddIcon from '@material-ui/icons/Add';
 import TextField from '@material-ui/core/TextField';
 import Portal from '@material-ui/core/Portal';
 import FileUpload from './FileUpload';
-// import Modal from '@material-ui/core/Modal';
 
 const drawerWidth = 960;
 
@@ -82,7 +81,11 @@ export default function TopNav() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [categories, updateCategories] = React.useState(['Taxes', 'Medical']);
+  const [categories, updateCategories] = React.useState([
+    'Taxes',
+    'Medical',
+    'Receipts',
+  ]);
   const [show, setShow] = React.useState(false);
   const container = React.useRef(null);
   const [category, setCategory] = React.useState('');
