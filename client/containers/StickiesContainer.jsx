@@ -13,6 +13,7 @@ import Collapse from '@material-ui/core/Collapse';
 import AddIcon from '@material-ui/icons/Add';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import { Paper, Card, CardActionArea } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -31,6 +32,15 @@ const useStyles = makeStyles(theme => ({
     '& > *': {
       margin: theme.spacing(2),
     },
+  },
+  card: {
+    color: '#fff',
+    textAlign: 'center',
+    alignItems: 'center',
+  },
+  nested: {
+    textAlign: 'center',
+    margin: 'auto',
   },
 }));
 
@@ -141,33 +151,6 @@ const StickiesContainer = props => {
     <>
       <div>
         <Grid container spacing={3}>
-          <Grid key={`grid-1`} item xs={12} sm={12} md={12}>
-            <List
-              style={{
-                background: 'transparent',
-                boxShadow: 'none',
-                alignSelf: 'flex-start',
-              }}
-            >
-              <ListItem button onClick={handleClick}>
-                <ListItemIcon>
-                  <AddIcon />
-                </ListItemIcon>
-              </ListItem>
-              <Collapse in={open} timeout='auto' unmountOnExit>
-                <List component='div' disablePadding>
-                  <ListItem className={classes.nested}>
-                    <TextField
-                      onChange={e => updateContent(e.target.value)}
-                      label='Enter title'
-                      style={{ width: 450 }}
-                    />
-                    <Button onClick={addSticky}>Add Sticky</Button>
-                  </ListItem>
-                </List>
-              </Collapse>
-            </List>
-          </Grid>
           {stickies.map((sticky, idx) => {
             return (
               <Grid key={`grid-${idx + 1}`} item lg={3} md={4} sm={6} xs={12}>
@@ -175,6 +158,47 @@ const StickiesContainer = props => {
               </Grid>
             );
           })}
+          <Grid key={`grid-1`} item lg={3} md={4} sm={6} xs={12}>
+            <Card
+              style={{
+                background: 'rgba(255,255,255,0.4)',
+                color: '#fff',
+                display: 'flex',
+                alignItems: 'center',
+                alignText: 'center',
+              }}
+            >
+              <CardActionArea>
+                <h2 className='container-header'></h2>
+                <List
+                  style={{
+                    background: 'transparent',
+                    boxShadow: 'none',
+                    color: '#fff',
+                    alignText: 'center',
+                  }}
+                >
+                  <Collapse in={open} timeout='auto' unmountOnExit>
+                    <List component='div' disablePadding>
+                      <ListItem className={classes.nested}>
+                        <TextField
+                          onChange={e => updateContent(e.target.value)}
+                          label='Enter title'
+                          style={{ width: '80%' }}
+                        />
+                        <Button onClick={addSticky}>Add Sticky</Button>
+                      </ListItem>
+                    </List>
+                  </Collapse>
+                  <ListItem button onClick={handleClick}>
+                    <ListItemIcon>
+                      <AddIcon />
+                    </ListItemIcon>
+                  </ListItem>
+                </List>
+              </CardActionArea>
+            </Card>
+          </Grid>
         </Grid>
       </div>
     </>
