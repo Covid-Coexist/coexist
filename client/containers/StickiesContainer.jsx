@@ -153,14 +153,14 @@ const StickiesContainer = props => {
                 <ListItemIcon>
                   <AddIcon />
                 </ListItemIcon>
-                {/* {open ? <ExpandLess /> : <ExpandMore />} */}
               </ListItem>
               <Collapse in={open} timeout='auto' unmountOnExit>
-                <List component='div' disablePadding style={{ width: 200 }}>
+                <List component='div' disablePadding>
                   <ListItem className={classes.nested}>
                     <TextField
                       onChange={e => updateContent(e.target.value)}
                       label='Enter title'
+                      style={{ width: 450 }}
                     />
                     <Button onClick={addSticky}>Add Sticky</Button>
                   </ListItem>
